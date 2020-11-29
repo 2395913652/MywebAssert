@@ -19,17 +19,8 @@ ul.onmouseout = function (e) {
 }
 
 
-document.onkeydown=function(e){
-    if(e.altKey==true){
-        
-        ul.onclick = function (e) {
-
-            var target = e.target;
-                target.style.background = "url(flag.png)"
-           
-            
-        }
-    }
+ul.onclick=function(e){
+    clear(e);
 }
 create();
 function create() {
