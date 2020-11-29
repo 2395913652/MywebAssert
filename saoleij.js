@@ -22,6 +22,10 @@ ul.onmouseout = function (e) {
 ul.onclick=function(e){
     clear(e);
 }
+ul.ondblclick=function(e){
+    var target=e.target;
+    target.style.background="url(flag.png)";
+}
 create();
 function create() {
     var boomArr = newRandomNumber(10, 0, 99);
