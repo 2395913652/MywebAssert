@@ -25,6 +25,7 @@ ul.onclick=function(e){
 ul.ondblclick=function(e){
     var target=e.target;
     target.style.background="url(flag.png)";
+    
 }
 create();
 function create() {
