@@ -1,5 +1,6 @@
 var ul = document.getElementsByTagName('ul')[0];
 var li = ul.getElementsByTagName('li');
+var bt=document.getElementsByTagName('button')[0];
 for (var i = 0; i < li.length; i++) {
     li[i].setAttribute("istouch", "flase");
     li[i].setAttribute("position", (i < 10 ? i : i % 10) + " " + parseInt(i / 10));
@@ -7,6 +8,9 @@ for (var i = 0; i < li.length; i++) {
     //x,y坐标值
     /* parseInt(li[i].getAttribute("position").match(/[0-9][ ]/));
     parseInt(li[i].getAttribute("position").match(/[ ][0-9]/));; */
+}
+bt.onclick=function(){
+    create();
 }
 ul.onmouseover = function (e) {
     
