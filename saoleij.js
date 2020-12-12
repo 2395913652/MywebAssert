@@ -9,23 +9,19 @@ for (var i = 0; i < li.length; i++) {
     parseInt(li[i].getAttribute("position").match(/[ ][0-9]/));; */
 }
 ul.onmouseover = function (e) {
-    var target = e.target;
-    target.style.borderColor = "yellow";
+    
+    e.target.style.borderColor = "yellow";
 }
 ul.onmouseout = function (e) {
 
-    var target = e.target;
-    target.style.borderColor = "rgb(229,184,177)";
+    e.target.style.borderColor = "rgb(229,184,177)";
 }
-
+ul.oncontextmenu=function(e){
+    e.target.style.background="url(flag.png)"
+}
 
 ul.onclick=function(e){
     clear(e);
-}
-ul.ondblclick=function(e){
-    var target=e.target;
-    target.style.background="url(flag.png)";
-    
 }
 create();
 function create() {
