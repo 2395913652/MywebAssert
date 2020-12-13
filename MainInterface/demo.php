@@ -12,6 +12,6 @@ echo("<br>success<br>");
 $sql="insert into bzls(nameId,number,password) values('".$nameId."','".$number."','".$password."')";
 echo $sql;
 if($conn->query($sql)===true){
-    echo "<br>success";
+    echo "<br>success<br>";
 }
 ?>

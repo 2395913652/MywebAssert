@@ -3,6 +3,10 @@
     padding: 0;
     border: 0;
 }
+[name=phptext]{
+    width:400px;
+    height:200px;
+}
 body {
     background-image: linear-gradient( 135deg, #90F7EC 10%, #32CCBC 100%);
     background-size: cover;
