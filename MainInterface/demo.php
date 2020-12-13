@@ -4,7 +4,7 @@ $number=$_POST["number"];
 $password=$_POST["password"];
 echo "账号是：",$number;
 echo "密码是：",$password;
-$conn=new mysqli("localhost","root",".Wyj2458941097","demo");
+@$conn=new mysqli("localhost:3306","root","","demo");
 if($conn->connect_error){
     die("连接失败".$conn->connect_error);
 }
