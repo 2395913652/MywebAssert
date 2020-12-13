@@ -1,4 +1,5 @@
 <?php
+echo"gitceshi";
 $nameId=$_POST["nameId"];
 $number=$_POST["number"];
 $password=$_POST["password"];
