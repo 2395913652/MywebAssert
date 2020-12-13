@@ -1,4 +1,21 @@
-var ul = document.getElementsByTagName('ul')[0];
+var bt=document.getElementsByTagName('button')[0];
+bt.onclick=function(){
+    cleargame();
+    newgame();
+}
+function cleargame(){var ul = document.getElementsByTagName('ul')[0];
+    var li=document.getElementsByTagName('li');
+    var num=li.length;
+    for(var i=0;i<num;i++){
+        ul.removeChild(li[0]);
+    }
+}
+function newgame(){var ul = document.getElementsByTagName('ul')[0];
+var ctli =new Array();
+for(var i=0;i<100;i++){
+    ctli[i]=document.createElement('li');
+}
+ctlif();
 var li = ul.getElementsByTagName('li');
 var bt=document.getElementsByTagName('button')[0];
 for (var i = 0; i < li.length; i++) {
@@ -9,8 +26,10 @@ for (var i = 0; i < li.length; i++) {
     /* parseInt(li[i].getAttribute("position").match(/[0-9][ ]/));
     parseInt(li[i].getAttribute("position").match(/[ ][0-9]/));; */
 }
-bt.onclick=function(){
-    create();
+function ctlif(){
+    for(var i=0;i<100;i++){
+        ul.appendChild(ctli[i]);
+    }
 }
 ul.onmouseover = function (e) {
     
@@ -159,4 +178,5 @@ function newRandomNumber(n, a, b) {
     }
 
     return arr;
+}
 }
