@@ -1,14 +1,32 @@
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
+.head{
+    font-size: 48px;
+    line-height: 48px;
+    font-family: "KaiTi";
 }
-[name=phptext]{
-    width:400px;
-    height:200px;
+.head>div{
+    margin:auto;
+    width:30%;
+}
+.navigation{
+    line-height: 36px;
+    font-size: 18px;
+    width:100%;
+    background-image:linear-gradient( 135deg, #0396FF 10%, #ABDCFF 100%);
+}
+a{
+    text-decoration:none;
+}
+a:hover{
+color: #a59c89;
 }
 body {
     background-image: linear-gradient( 135deg, #90F7EC 10%, #32CCBC 100%);
     background-size: cover;
     background-attachment: fixed;
 }
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
