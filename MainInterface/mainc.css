@@ -14,7 +14,9 @@
     text-align: center;
     font-size: 20px;
 }
-
+input{
+    border:1px solid black;
+}
 .main {
     position: absolute;
     left: 50%;
@@ -34,9 +36,27 @@
 }
 
 .frame>button:hover {
+    
     color: antiquewhite;
 }
-
+.frame>.state{
+    background-color:green;
+    float: left;
+    margin-left: 83px;
+    width:140px;
+    height:50px;
+    font-size: 30px;
+    line-height: 50px;
+}
+.frame>.flagNum{
+    width:80px;
+    height:50px;
+    line-height: 50px;
+    background-color: black;
+    color:red;
+    float:right;
+    font-size: 30px;
+}
 .frame {
     position: relative;
     width: 100%;
