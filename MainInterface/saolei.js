@@ -4,12 +4,18 @@ document.body.onselectstart = document.body.ondrag = document.body.oncontextmenu
 /* 初始属性值 */
 var li = document.getElementsByTagName('li');
 var input = document.getElementsByTagName('input');
-var boomNum = parseInt(input[0].getAttribute('value'));
+var boomNum = parseInt(input[0].getAttribute('value'));//地雷的数量
 var bt = document.getElementsByTagName('button');
 var state = document.getElementsByClassName('state')[0];
 start();//开始
 
 bt[0].onclick = function () {
+    format();
+    start();
+}
+function format(){
+    //对游戏进行格式化
+    state.removeAttribute('style');
     for (let i = 0; i < li.length; i++) {
         li[i].removeAttribute('count');
         li[i].removeAttribute('boomType');
@@ -17,9 +23,8 @@ bt[0].onclick = function () {
         li[i].removeAttribute('isshow');
         li[i].removeAttribute('style');
         li[i].innerHTML = "";
-        state.removeAttribute('style');
+        
     }
-    start();
 }
 function start() {
     var flagNum=document.getElementsByClassName('flagNum')[0];
@@ -64,62 +69,31 @@ function start() {
         }
         else if (li[key].hasAttribute("boomType")) {
             //如果是雷
-
-            for (let i = 0; i < li.length; i++) {
-                li[i].onclick = function () { };
-                li[i].oncontextmenu = function () { };
-            }
-            state.style.backgroundColor = 'red';
-            state.innerHTML = 'failed';
-            for (let i = 0; i < boomNum; i++) {
-                if (!li[boomValue[i]].hasAttribute('flagType')) {
-                    li[boomValue[i]].style.backgroundImage = "url(assets/boom.png)"
-                } else {
-                    li[boomValue[i]].style.backgroundImage = 'url(assets/boom0.png)'
-                    count++;
-                }
-            }
+            
+            failed();
+            
             
 
         } else {
             //如果是数字
             checkNull(key);
             if(flagNum.getAttribute('value')=='0'){
-                var count=0;
-                for(var i=0;i<li.length;i++){
-                    if(!(li[i].hasAttribute('isshow')||li[i].hasAttribute('boomType'))){
-                        count++;
-                    }
-                    
-                }
-                if(count==0){
-                    state.style.backgroundColor="yellow";
-                    state.innerHTML='success';
-                }
+                success();
             }
 
         }
     }
     function liOncontextListener(key) {
         /* 右键点击事件 */
-        if (!li[key].hasAttribute('isshow')) {
+        if (!li[key].hasAttribute('isshow')&&!li[key].hasAttribute('flagType')) {
             li[key].setAttribute('flagType', '');
             li[key].style.backgroundImage = "url(assets/flag.png)";
             flagNum.setAttribute('value',parseInt(flagNum.getAttribute('value'))-1);
             flagNum.innerHTML=flagNum.getAttribute('value');
         }
         if(flagNum.getAttribute('value')=='0'){
-            var count=0;
-            for(var i=0;i<li.length;i++){
-                if(!(li[i].hasAttribute('isshow')||li[i].hasAttribute('boomType'))){
-                    count++;
-                }
-                
-            }
-            if(count==0){
-                state.style.backgroundColor='yellow';
-                state.innerHTML='success';
-            }
+            
+            success();
         }
         
     }
@@ -164,6 +138,41 @@ function start() {
                 }
             }
         } 
+    }
+    function end(){
+        /* 结束鼠标左右键点击事件为空 */
+        for (let i = 0; i < li.length; i++) {
+            li[i].onclick = function () { };
+            li[i].oncontextmenu = function () { };
+        }
+    }
+    function success(){
+        //游戏事件成功的状态
+        var count=0;
+        for(var i=0;i<li.length;i++){
+            if(!(li[i].hasAttribute('isshow')||li[i].hasAttribute('boomType'))){
+                count++;
+            }
+            
+        }
+        if(count==0){
+            end();
+            state.style.backgroundColor="yellow";
+            state.innerHTML='success';
+        }
+    }
+    function failed(){
+        //游戏失败的状态
+        end();
+        state.style.backgroundColor = 'red';
+        state.innerHTML = 'failed';
+        for (let i = 0; i < boomNum; i++) {
+            if (!li[boomValue[i]].hasAttribute('flagType')) {
+                li[boomValue[i]].style.backgroundImage = "url(assets/boom.png)"
+            } else {
+                li[boomValue[i]].style.backgroundImage = 'url(assets/boom0.png)'
+            }
+        }
     }
 
 }
