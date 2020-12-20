@@ -132,10 +132,10 @@ function start() {
 
             }
             for (let i = 0; i < newarr.length; i++) {
-                changebg(newarr[i]);
                 if (li[newarr[i]].hasAttribute('flagType')) {
-                    flagListener();
+                    flagListener(newarr[i]);
                 }
+                changebg(newarr[i]);
                 if (li[newarr[i]].getAttribute('count') == '0') {
                     checkNull(newarr[i]);
                 }
