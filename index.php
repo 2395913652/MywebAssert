@@ -3,7 +3,7 @@ $agent = strtolower($_SERVER['HTTP_USER_AGENT']);
 if (strpos($agent, 'windows nt')) {
 header("Location:index1.html");
 }elseif (strpos($agent, 'android')) {
-    header("Location:index1.html")
+    header("Location:index1.html");
 }
 
 ?>
